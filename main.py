@@ -70,13 +70,14 @@ async def whatsapp_reply(request: Request):
     # reply.body(answer)
         recipient_phone_number = sender_number
         message = client.messages.create(
-        from_=twilio_phone_number,
+        from_ = twilio_phone_number,
         to=recipient_phone_number,
         body=str(generate_answer(query))
         )
         return str(twilio_response)
-    except:
+    except as e:
         print("error in twilio or other")
+        print(e)
         pass
 
 
