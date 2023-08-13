@@ -4,7 +4,7 @@ import openai
 import requests
 from twilio.rest import Client
 from pydantic import BaseModel
-from pyngrok import ngrok
+
 from twilio.twiml.messaging_response import MessagingResponse
 openai.api_key = os.getenv('openapikey')
 account_sid=os.getenv('twiliosessionid')
@@ -73,7 +73,7 @@ async def whatsapp_reply(request: Request):
         return str(twilio_response)
     except:
         pass
-public_url = ngrok.connect(8000)
+
 print("Public URL:", public_url)
 
     
