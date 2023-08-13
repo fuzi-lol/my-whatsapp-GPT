@@ -22,3 +22,5 @@ openpyxl==3.1.2
 pydantic==1.10.7
 starlette==0.26.1
 twilio==8.5.0
+pyngrok==6.0.0
+uvicorn==0.13.4
