@@ -74,7 +74,6 @@ async def whatsapp_reply(request: Request):
     except:
         pass
 
-print("Public URL:", public_url)
 
     
 
