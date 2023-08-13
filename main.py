@@ -75,7 +75,7 @@ async def whatsapp_reply(request: Request):
         body=str(generate_answer(query))
         )
         return str(twilio_response)
-    except as e:
+    except Exception as e:
         print("error in twilio or other")
         print(e)
         pass
