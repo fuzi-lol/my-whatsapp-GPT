@@ -1,13 +1,14 @@
 from fastapi import FastAPI, Request
+import os
 import openai
 import requests
 from twilio.rest import Client
 from pydantic import BaseModel
 from pyngrok import ngrok
 from twilio.twiml.messaging_response import MessagingResponse
-openai.api_key = "openapikey here"
-account_sid='twilio session id'
-auth_token='twilio auth token'
+openai.api_key = os.getenv('openapikey')
+account_sid=os.getenv('twiliosessionid')
+auth_token=os.getenv('twilioauthtoken')
 
 client = Client(account_sid, auth_token)
 
