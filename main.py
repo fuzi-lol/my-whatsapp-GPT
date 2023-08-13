@@ -7,8 +7,12 @@ from pydantic import BaseModel
 
 from twilio.twiml.messaging_response import MessagingResponse
 openai.api_key = os.getenv('openapikey')
+print(openai.api_key)
 account_sid=os.getenv('twiliosessionid')
+print(account_sid)
 auth_token=os.getenv('twilioauthtoken')
+print(auth_token)
+
 
 client = Client(account_sid, auth_token)
 
@@ -48,7 +52,7 @@ def generate_answer(message):
         print(completion.choices[0].message['content'])
         return completion.choices[0].message['content']
     except:
-        pass
+        print("error in message generation")
 @app.post("/whatsapp")
 async def whatsapp_reply(request: Request):
     try:
@@ -72,6 +76,7 @@ async def whatsapp_reply(request: Request):
         )
         return str(twilio_response)
     except:
+        print("error in twilio or other")
         pass
 
 
